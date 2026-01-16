@@ -8,4 +8,5 @@ html, body {
     overflow-x: hidden;
     margin: 0;
     background-color: #F9F5F0;
+    font-family: monospace;
 }
