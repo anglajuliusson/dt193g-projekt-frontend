@@ -1,11 +1,13 @@
-<script setup></script>
+<script setup>
+    // Importerar gemensamma layout-komponenter som ska visas på alla sidor i applikationen.
+    import Header from './components/Header.vue' // Header-komponenten
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <!-- Huvudlayout för hela applikationen. 
+       Innehållet i <router-view /> byts dynamiskt beroende på vilken route som är aktiv. -->
+       <Header />
+       <router-view />
 </template>
 
 <style scoped></style>
