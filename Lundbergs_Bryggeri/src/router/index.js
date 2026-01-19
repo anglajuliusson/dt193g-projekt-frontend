@@ -28,50 +28,89 @@ const router = createRouter({
     {
       path: '/products',
       name: 'products',
-      component: ProductsView
+      component: ProductsView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/add-product',
       name: 'AddProduct',
-      component: AddProductView
+      component: AddProductView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/update-product',
       name: 'UpdateProduct',
-      component: UpdateProductView
+      component: UpdateProductView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/categories',
       name: 'categories',
-      component: CategoriesView
+      component: CategoriesView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/add-category',
       name: 'AddCategory',
-      component: AddCategoryView
+      component: AddCategoryView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/update-category',
       name: 'UpdateCategory',
-      component: UpdateCategoryView
+      component: UpdateCategoryView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/profile',
       name: 'profile',
-      component: ProfileView
+      component: ProfileView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/add-profile',
       name: 'AddProfile',
-      component: AddProfileView
+      component: AddProfileView,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/update-profile',
       name: 'UpdateProfile',
-      component: UpdateProfileView
+      component: UpdateProfileView,
+      meta: {
+        auth: true
+      }
     }
   ]
 })
+
+// Konfiguration – skydda routes
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token");
+
+  // Om routen kräver inloggning
+  if (to.meta.auth && !token) {
+    next("/login");
+  } else {
+    next();
+  }
+});
 
 // Exporterar routern så att den kan användas i main.js och kopplas till Vue-applikationen.
 export default router
