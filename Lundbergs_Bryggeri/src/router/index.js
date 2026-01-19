@@ -42,7 +42,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/update-product',
+      path: '/update-product/:id',
       name: 'UpdateProduct',
       component: UpdateProductView,
       meta: {
@@ -66,7 +66,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/update-category',
+      path: '/update-category/:id',
       name: 'UpdateCategory',
       component: UpdateCategoryView,
       meta: {
@@ -90,7 +90,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/update-profile',
+      path: '/update-profile/:id',
       name: 'UpdateProfile',
       component: UpdateProfileView,
       meta: {
