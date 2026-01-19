@@ -56,6 +56,7 @@
         width: 90%;
         margin: auto;
         border-collapse: collapse;
+        margin-bottom: 3em;
     }
     th, td {
         border: 1px solid #ccc;
