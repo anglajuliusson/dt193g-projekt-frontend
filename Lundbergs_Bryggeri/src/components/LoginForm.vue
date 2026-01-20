@@ -26,6 +26,8 @@ const login = async (e) => {
 
   if (data.token) {
     localStorage.setItem("token", data.token); // Spara JWT
+    localStorage.setItem("user", JSON.stringify(data.user));
+
     router.push("/products"); // Navigera till produkt-sidan
   } else {
     alert("Felaktigt användarnamn eller lösenord");
