@@ -1,4 +1,16 @@
-<script setup></script>
+<script setup>
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter(); // här får vi tillgång till router
+      
+  // Logga ut
+  const logout = () => {
+    if (confirm('Är du säker på att du vill logga ut?')) {
+        localStorage.removeItem('token');
+        router.push('/login');
+    }
+    };
+</script>
 
 <template>
     <header>
@@ -10,7 +22,7 @@
                     <li><router-link to="/profile">Min profil</router-link></li>
                 </ul>
             </nav>
-            <button>Logga ut</button>
+            <button @click="logout">Logga ut</button>
         </div>
     </header>
 </template>
