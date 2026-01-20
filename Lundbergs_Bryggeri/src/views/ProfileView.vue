@@ -23,6 +23,26 @@
         router.push('/login');
       }
     };
+
+    // Navigera till redigera profil
+    const goToEditProfile = () => {
+      if (!user.value || !user.value.id) return;
+      router.push(`/update-profile/${user.value.id}`);
+    };
+
+
+    // Navigera till skapa ny användare
+    const goToAddUser = () => {
+      router.push('/add-profile'); // Skapa AddUserView separat
+    };
+
+    // Logga ut
+    const logout = () => {
+    if (confirm('Är du säker på att du vill logga ut?')) {
+        localStorage.removeItem('token');
+        router.push('/login');
+    }
+    };
     
     onMounted(fetchProfile);
 </script>
@@ -46,9 +66,9 @@
         <p><strong>Telefon:</strong> {{ user.phone }}</p>
       </div>
       <div class="buttons">
-        <button class="update_btn">Redigera profil</button>
-        <button class="add_btn">Skapa ny användare</button>
-        <button class="logout_btn">Logga ut</button>
+        <button class="update_btn" @click="goToEditProfile">Redigera profil</button>
+        <button class="add_btn" @click="goToAddUser">Skapa ny användare</button>
+        <button class="logout_btn" @click="logout">Logga ut</button>
       </div>
     </main>
 </template>  
@@ -92,12 +112,21 @@
         background-color: #8B5E3C;
         color: #F9F5F0;
     }
+    .update_btn:hover {
+        background-color: #714d31;
+    }
     .add_btn {
         background-color: #B87333;
         color: #3e3e3e;
     }
+    .add_btn:hover {
+        background-color: rgb(152, 95, 42);
+    }
     .logout_btn {
         background-color: #3e3e3e;
         color: #F9F5F0;
+    }
+    .logout_btn:hover {
+        background-color: #222222;
     }
 </style>
