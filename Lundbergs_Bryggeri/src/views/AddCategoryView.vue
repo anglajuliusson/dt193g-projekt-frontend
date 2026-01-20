@@ -1,7 +1,47 @@
-<script setup></script>
-  
+<script setup>
+    import { useRouter } from 'vue-router';
+    import CategoryFrom from '../components/AddCategoryForm.vue';
+    
+    // Router används för att nevigera mellan vyer efter lyckat anrop
+    const router = useRouter();
+    
+    // Funktion som tar emot formulärdata från ProductForm-komponenten
+    // och skickar ett POST-anrop till backend för att skapa en ny produkt
+    const handleSubmit = async (formData) => {
+      // Hämtar JWT-token från localStorage för autentisering
+      const token = localStorage.getItem('token');
+    
+      // Skickar POST-anrop till backend med produktdata
+      const res = await fetch('http://localhost:3000/categories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Token krävs för skyddad endpoint
+        },
+        body: JSON.stringify(formData)
+      });
+    
+      // Vid lyckat svar navigeras användaren tillbaka till produktlistan
+      if (res.ok) {
+        router.push('/categories');
+      } else {
+        const data = await res.json();
+        alert("Fel vid tillägg: " + data.error);
+      }
+    };
+</script>    
+    
 <template>
-
-</template>
+    <main>
+        <h1>Lägg till ny kategori</h1>
+        <CategoryFrom @submit="handleSubmit" />
+    </main>
+</template>    
   
-<style scoped></style>
+<style scoped>
+    main {
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: 3em;
+    }
+</style>
