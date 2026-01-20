@@ -1,10 +1,12 @@
 <script setup>
     import { ref, onMounted, computed } from 'vue';
-    import { useRouter } from 'vue-router';
+    import { useRouter, useRoute } from 'vue-router';
     import ProductsTable from '../components/ProductsTable.vue';
     
-    const products = ref([]); // Reaktiv variabel för alla produkter
     const router = useRouter();
+    const route = useRoute();
+
+    const products = ref([]); // Reaktiv variabel för alla produkter
     const searchQuery = ref(''); // Sökruta
     const selectedCategory = ref('Alla'); // Filterkategori
     const categories = ref(['Alla']); // Alla tillgängliga kategorier
@@ -33,7 +35,13 @@
       // Hämta alla kategorier
       const allCategories = Array.from(new Set(data.map(p => p.category)));
       categories.value = ['Alla', ...allCategories];
+
+      // Om kategori skickats via URL (?category=...)
+      if (route.query.category) {
+        selectedCategory.value = route.query.category;
+      }
     };
+
     
     // Filtrera produkter baserat på sökning och kategori
     const filteredProducts = computed(() => {
