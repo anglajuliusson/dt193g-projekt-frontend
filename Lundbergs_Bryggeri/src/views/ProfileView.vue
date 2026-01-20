@@ -16,7 +16,7 @@
       });
     
       if (res.ok) {
-        const data = await res.json();
+        const data = await res.json(); 
         user.value = Array.isArray(data) ? data[0] : data;
       } else {
         alert('Kunde inte hämta profilinformation');
@@ -93,6 +93,7 @@
         text-align: left;
         font-size: large;
         line-height: 1.6;
+        margin-top: 2em;
     }
     .buttons {
         display: flex;
