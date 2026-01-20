@@ -6,23 +6,16 @@
     const user = ref(null);
     
     // Hämta inloggad användares profil
-    const fetchProfile = async () => {
-      const token = localStorage.getItem('token');
-    
-      const res = await fetch('http://localhost:3000/staff', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-    
-      if (res.ok) {
-        const data = await res.json(); 
-        user.value = Array.isArray(data) ? data[0] : data;
-      } else {
-        alert('Kunde inte hämta profilinformation');
-        router.push('/login');
-      }
-    };
+    const fetchProfile = () => {
+      
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      user.value = JSON.parse(storedUser);
+    } else {
+      router.push('/login'); // ingen user sparad → skicka till login
+    }
+  };
+
 
     // Navigera till redigera profil
     const goToEditProfile = () => {
@@ -33,7 +26,7 @@
 
     // Navigera till skapa ny användare
     const goToAddUser = () => {
-      router.push('/add-profile'); // Skapa AddUserView separat
+      router.push('/add-profile');
     };
 
     // Logga ut
