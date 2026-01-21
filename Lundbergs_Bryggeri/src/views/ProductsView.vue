@@ -90,64 +90,44 @@
     
     
 <template>
-    <main>
-        <h1>Produkter</h1>
-        <div class="controls">
-            <input type="text" v-model="searchQuery" placeholder="Sök produkter..." />
-            <div class="category-group">
-            <label>Kategorier:</label>
-            <select v-model="selectedCategory">
-                <option v-for="cat in categories" :key="cat">{{ cat }}</option>
-            </select>
+    <main class="section">
+        <div class="container">
+          <h1 class="title has-text-centered">Produkter</h1>
+          <div class="field is-grouped is-grouped-multiline is-justify-content-center mb-5">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                v-model="searchQuery"
+                placeholder="Sök produkter..."
+              />
             </div>
-            <button @click="goToAddProduct">Lägg till ny produkt</button>
-        </div>
-        <div class="table">
-        <ProductsTable 
-        :products="filteredProducts"
-        @edit="goToUpdateProduct"
-        @delete="deleteProduct"
-        />
+            <div class="control">
+              <div class="select">
+                <select v-model="selectedCategory">
+                  <option v-for="cat in categories" :key="cat">{{ cat }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="control">
+              <button
+                class="button"
+                style="background-color: #B87333; color: #3e3e3e;"
+                @click="goToAddProduct"
+              >
+                Lägg till ny produkt
+              </button>
+            </div>
+          </div>
+          <div class="mb-5">
+            <ProductsTable
+              :products="filteredProducts"
+              @edit="goToUpdateProduct"
+              @delete="deleteProduct"
+            />
+          </div>
         </div>
     </main>
-</template>
+</template>  
 
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-    }
-    .controls {
-        margin: 2em;
-        display: flex;
-        gap: 2em;
-        justify-content: center;
-    }
-    .category-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    }
-    button {
-        background-color: #B87333;
-        color: #3e3e3e;
-        border-radius: 5px;
-        border: none;
-        padding: 5px;
-    }
-    select, input {
-        border-radius: 5px;
-        padding: 5px;
-        border: 1px solid #ccc;
-    }
-    @media (max-width: 768px) {
-        .controls {
-            display: block;
-            margin-bottom: 2em;
-        }
-        .controls input, .controls button, .category-group {
-            margin-bottom: 1.5em;
-            justify-content: center;
-        }
-    }
-</style>    
+<style scoped></style>    

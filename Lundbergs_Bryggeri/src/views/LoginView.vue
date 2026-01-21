@@ -4,24 +4,17 @@
 </script>
   
 <template>
-    <main>
-        <h1>Lundbergs Bryggeri</h1>
-        <h2>Admin login</h2>
-        <LoginForm />
-    </main>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-2">Lundbergs Bryggeri</h1>
+          <h2 class="subtitle is-4 mb-5">Admin login</h2>
+          <div class="mx-auto" style="max-width: 400px; padding: 1em;">
+            <LoginForm />
+          </div>
+        </div>
+      </div>
+    </section>
 </template>
   
-<style scoped>
-    main {
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        color: #3E3E3E;
-    }
-    h1 {
-        margin-top: 3em;
-    }
-    h2 {
-        margin-top: 1em;
-    }
-</style>
+<style scoped></style>

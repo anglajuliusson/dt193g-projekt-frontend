@@ -23,69 +23,76 @@
     };
 </script>
     
-    <template>
-      <form @submit.prevent="submitForm" class="form-container">
-        <div class="input-group">
-          <label>Produktbild:</label>
-          <input v-model="formData.image" placeholder="Bild-URL" />
-        </div>
-        <div class="input-group">
-          <label>Artikelnummer:</label>
-          <input v-model="formData.article_number" placeholder="Artikelnummer" required />
-        </div>
-        <div class="input-group">
-          <label>Namn:</label>
-          <input v-model="formData.name" placeholder="Namn" required />
-        </div>
-        <div class="input-group">
-          <label>Beskrivning:</label>
-          <textarea v-model="formData.description" placeholder="Beskrivning"></textarea>
-        </div>
-        <div class="input-group">
-          <label>Kategori:</label>
-          <input v-model="formData.category" placeholder="Kategori" required />
-        </div>
-        <div class="input-group">
-          <label>Pris (kr):</label>
-          <input type="number" v-model="formData.price" placeholder="Pris" required />
-        </div>
-        <div class="input-group">
-          <label>Lagersaldo:</label>
-          <input type="number" v-model="formData.stock_quantity" placeholder="Lagersaldo" required />
-        </div>
-        <button type="submit">Lägg till produkt</button>
-      </form>
-    </template>
-   
+<template>
+  <form @submit.prevent="submitForm" class="boxless-form">
+    <div class="field">
+      <label class="label">Produktbild:</label>
+      <div class="control">
+        <input class="input" v-model="formData.image" placeholder="Bild-URL" />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Artikelnummer:</label>
+      <div class="control">
+        <input class="input" v-model="formData.article_number" placeholder="Artikelnummer" required />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Namn:</label>
+      <div class="control">
+        <input class="input" v-model="formData.name" placeholder="Namn" required />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Beskrivning:</label>
+      <div class="control">
+        <textarea class="textarea" v-model="formData.description" placeholder="Beskrivning"></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Kategori:</label>
+      <div class="control">
+        <input class="input" v-model="formData.category" placeholder="Kategori" required />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Pris (kr):</label>
+      <div class="control">
+        <input type="number" class="input" v-model="formData.price" placeholder="Pris" required />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Lagersaldo:</label>
+      <div class="control">
+        <input type="number" class="input" v-model="formData.stock_quantity" placeholder="Lagersaldo" required />
+      </div>
+    </div>
+    <div class="field is-grouped is-grouped-centered">
+      <div class="control">
+        <button type="submit" class="button submit-btn">Lägg till produkt</button>
+      </div>
+    </div>
+  </form>
+</template>
+
 <style scoped>
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-        margin-top: 2em;
-    }
-    .input-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1.5em;
-    }
-    label {
-        margin-bottom: 0.5em;
-    }
-    input, textarea {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    button {
-        background-color: #B87333;
-        color: #3e3e3e;
-        border-radius: 5px;
-        border: none;
-        padding: 5px;
-        margin-bottom: 3em;
-    }
+  .boxless-form {
+    max-width: 400px;
+    width: 90%;
+    margin: 2em auto 3em auto;
+    text-align: left;
+  }
+  .input, .textarea {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .submit-btn {
+    background-color: #B87333;
+    color: #3e3e3e;
+    border-radius: 5px;
+    border: none;
+  }
+  .submit-btn:hover {
+    background-color: rgb(152, 95, 42);
+  }
 </style>

@@ -39,65 +39,70 @@
     };
     </script>
     
-    <template>
+<template>
     <form @submit.prevent="submitForm" class="form-container">
-        <div class="input-group">
-          <label>Profilbild:</label>
-          <input v-model="formData.image" placeholder="Profilbild" />
-        </div>
-        <div class="input-group">
-          <label>Användarnamn:</label>
-          <input v-model="formData.username" placeholder="Användaramn" required />
-        </div>
-        <div class="input-group">
-          <label>Namn:</label>
-          <input v-model="formData.name" placeholder="Namn" required />
-        </div>
-        <div class="input-group">
-          <label>E-post:</label>
-          <input v-model="formData.email" placeholder="E-post" required />
-        </div>
-        <div class="input-group">
-          <label>Telefonnummer:</label>
-          <input v-model="formData.phone" placeholder="Telefonnummer" required />
-        </div>
-        <div class="input-group">
-          <label>Lösenord:</label>
-          <input v-model="formData.password" placeholder="Lösenord" required />
-        </div>
-      <button type="submit">Spara ändringar</button>
+          <div class="field">
+            <label class="label">Profilbild:</label>
+            <div class="control">
+              <input class="input" type="text" v-model="formData.image" placeholder="Profilbild" />
+            </div>
+          </div>
+      
+          <div class="field">
+            <label class="label">Användarnamn:</label>
+            <div class="control">
+              <input class="input" type="text" v-model="formData.username" placeholder="Användarnamn" required />
+            </div>
+          </div>
+      
+          <div class="field">
+            <label class="label">Namn:</label>
+            <div class="control">
+              <input class="input" type="text" v-model="formData.name" placeholder="Namn" required />
+            </div>
+          </div>
+      
+          <div class="field">
+            <label class="label">E-post:</label>
+            <div class="control">
+              <input class="input" type="email" v-model="formData.email" placeholder="E-post" required />
+            </div>
+          </div>
+      
+          <div class="field">
+            <label class="label">Telefonnummer:</label>
+            <div class="control">
+              <input class="input" type="text" v-model="formData.phone" placeholder="Telefonnummer" required />
+            </div>
+          </div>
+      
+          <div class="field">
+            <label class="label">Lösenord:</label>
+            <div class="control">
+              <input class="input" type="password" v-model="formData.password" placeholder="Lösenord" required />
+            </div>
+          </div>
+      
+          <div class="field">
+            <div class="control">
+              <button class="button is-medium has-background-brown has-text-dark" type="submit">
+                Spara ändringar
+              </button>
+            </div>
+          </div>
     </form>
-  </template>
-     
-  <style scoped>
+</template>
+      
+<style scoped>
       .form-container {
-          display: flex;
-          flex-direction: column;
-          max-width: 400px;
-          width: 90%;
-          margin: 0 auto;
-          text-align: left;
-          margin-top: 2em;
+        max-width: 400px;
+        width: 90%;
+        margin: 2em auto;
       }
-      .input-group {
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 1.5em;
+      .has-background-brown {
+        background-color: rgb(184, 115, 51);
       }
-      label {
-          margin-bottom: 0.5em;
+      .has-background-brown:hover {
+        background-color: rgb(152, 95, 42);
       }
-      input, textarea {
-          padding: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
-      button {
-          background-color: #B87333;
-          color: #3e3e3e;
-          border-radius: 5px;
-          border: none;
-          padding: 5px;
-          margin-bottom: 3em;
-      }
-  </style>
+</style>      

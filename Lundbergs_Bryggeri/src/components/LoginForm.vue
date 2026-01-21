@@ -37,47 +37,39 @@ const login = async (e) => {
   
 <template>
     <div class="login">
-        <form @submit="login">
-            <label>Användarnamn:</label>
-            <input type="text" v-model="username" required></input>
-            <label>Lösenord:</label>
-            <input type="password" v-model="password" required></input>
-            <button type="submit">Logga in</button>
-        </form>
+      <form @submit="login" class="field is-flex is-flex-direction-column is-align-items-center">
+        <div class="field mb-4" style="width: 90%; max-width: 300px;">
+          <label class="label has-text-left">Användarnamn:</label>
+          <div class="control">
+            <input class="input" type="text" v-model="username" required />
+          </div>
+        </div>
+        <div class="field mb-4" style="width: 90%; max-width: 300px;">
+          <label class="label has-text-left">Lösenord:</label>
+          <div class="control">
+            <input class="input" type="password" v-model="password" required />
+          </div>
+        </div>
+        <div class="field" style="width: 90%; max-width: 200px;">
+          <div class="control">
+            <button type="submit" class="button is-medium has-background-brown has-text-dark is-fullwidth">
+              Logga in
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-</template>
+  </template>
   
 <style scoped>
     .login {
-        margin: auto;
-        margin-top: 3em;
+    margin-top: 3em;
     }
-    form {
-        display: flex;
-        flex-direction: column;
+
+    .has-background-brown {
+    background-color: #B87333;
     }
-    input, label {
-        text-align: left;
-        max-width: 300px;
-        width: 90%;
-        margin: auto;
-    }
-    input {
-        margin-bottom: 1.5em;
-        margin-top: 0.5em;
-    }
-    button {
-        background-color: #B87333;
-        color: #3E3E3E;
-        padding: 5px 10px 5px 10px;
-        border-radius: 5px;
-        border: solid #B87333;
-        max-width: 200px;
-        margin: auto;
-    }
-    @media (min-width: 768px) {
-        label, button {
-            font-size: large;
-        }
+    .has-background-brown:hover {
+    background-color: #A1612B;
     }
 </style>

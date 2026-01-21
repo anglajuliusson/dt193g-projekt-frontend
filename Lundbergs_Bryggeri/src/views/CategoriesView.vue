@@ -46,34 +46,43 @@
 </script>
     
 <template>
-    <main>
-        <h1>Kategorier</h1>
-        <button @click="router.push('/add-category')">Lägg till kategori</button>
-        <CategoryTable 
-          :categories="categories"
-          @view-products="goToCategoryProducts"
-          @edit="goToUpdateCategory"
-          @delete="deleteCategory"
-        />
-    </main>
+  <section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">Kategorier</h1>
+
+      <!-- Lägg till kategori knapp -->
+      <div class="mb-5" style="display: inline-block;">
+        <button
+          class="button is-medium has-background-brown has-text-dark"
+          @click="router.push('/add-category')"
+        >
+          Lägg till kategori
+        </button>
+      </div>
+
+      <!-- Kategoritabell -->
+      <CategoryTable
+        :categories="categories"
+        @view-products="goToCategoryProducts"
+        @edit="goToUpdateCategory"
+        @delete="deleteCategory"
+      />
+    </div>
+  </section>
 </template>
   
 <style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-    button {
-        background-color: rgb(184, 115, 51);
-        color: #3E3E3E;
-        border: none;
-        padding: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 2em;
-    }
-    button:hover {
-        background-color: rgb(152, 95, 42);
-    }
+/* Anpassa knappfärg */
+.has-background-brown {
+  background-color: rgb(184, 115, 51);
+}
+.has-background-brown:hover {
+  background-color: rgb(152, 95, 42);
+}
+
+/* Margin för container */
+.section {
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
 </style>

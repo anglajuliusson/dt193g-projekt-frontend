@@ -31,43 +31,32 @@
     
     <template>
     <form @submit.prevent="submitForm" class="form-container">
-      <div class="input-group">
-        <label>Namn:</label>
-        <input v-model="formData.name" placeholder="Namn" required />
+      <div class="field">
+        <label class="label">Namn:</label>
+        <div class="control">
+          <input class="input" v-model="formData.name" placeholder="Namn" required />
+        </div>
       </div>
-      <button type="submit">Spara ändringar</button>
+      <div class="field">
+        <div class="control">
+          <button class="button is-medium has-background-brown has-text-dark" type="submit">
+            Spara ändringar
+          </button>
+        </div>
+      </div>
     </form>
   </template>
      
   <style scoped>
       .form-container {
-          display: flex;
-          flex-direction: column;
-          max-width: 400px;
-          width: 90%;
-          margin: 0 auto;
-          text-align: left;
-          margin-top: 2em;
+        max-width: 400px;
+        width: 90%;
+        margin: 2em auto;
       }
-      .input-group {
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 1.5em;
+      .has-background-brown {
+        background-color: rgb(184, 115, 51);
       }
-      label {
-          margin-bottom: 0.5em;
-      }
-      input, textarea {
-          padding: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
-      button {
-          background-color: #B87333;
-          color: #3e3e3e;
-          border-radius: 5px;
-          border: none;
-          padding: 5px;
-          margin-bottom: 3em;
+      .has-background-brown:hover {
+        background-color: rgb(152, 95, 42);
       }
   </style>

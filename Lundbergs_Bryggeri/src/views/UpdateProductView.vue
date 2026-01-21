@@ -55,20 +55,16 @@
 </script>
     
 <template>
-    <main>
-        <h1>Uppdatera produkt</h1>
+  <section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered">Uppdatera produkt</h1>
         <ProductForm 
         v-if="product && Object.keys(product).length"
         :product="product" 
         @submit="handleSubmit" 
         />
-    </main>
+      </div>
+    </section>
 </template>    
   
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-</style>
+<style scoped></style>

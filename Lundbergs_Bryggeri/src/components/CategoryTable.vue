@@ -13,7 +13,7 @@
 </script>
     
 <template>
-    <div class="table">
+    <div>
       <table>
         <thead>
           <tr>
@@ -36,7 +36,7 @@
 </template>   
 
 <style scoped>
-    .table {
+    div {
         justify-content: center;
     }
     table {

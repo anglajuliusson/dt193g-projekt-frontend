@@ -55,20 +55,16 @@
 </script>
     
 <template>
-    <main>
-        <h1>Uppdatera kategori</h1>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Uppdatera kategori</h1>
         <CategoryFrom 
         v-if="category && Object.keys(category).length"
         :category="category" 
         @submit="handleSubmit" 
         />
-    </main>
+    </div>
+</section>
 </template>    
   
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-</style>
+<style scoped></style>

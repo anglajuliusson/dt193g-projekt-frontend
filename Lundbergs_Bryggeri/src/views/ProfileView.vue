@@ -7,7 +7,7 @@
     
     // Hämta inloggad användares profil
     const fetchProfile = () => {
-      
+
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       user.value = JSON.parse(storedUser);
@@ -41,86 +41,50 @@
 </script>
   
 <template>
-    <main v-if="user" class="profile-container">
-      <h1>Min profil</h1>
-
-      <img 
-        v-if="user.image"
-        :src="user.image"
-        alt="Profilbild"
-        class="profile-image"
-      />
-  
-      <div class="profile-info">
+  <section v-if="user" class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">Min profil</h1>
+      <figure class="image is-inline-block mt-5 mb-5" style="width: 400px; height: 400px; margin: auto;">
+        <img
+          v-if="user.image"
+          :src="user.image"
+          alt="Profilbild"
+          style="border-radius: 50%; width: 90%; height: 100%; object-fit: cover; margin: auto;"
+        />
+      </figure>
+      <div class="mx-auto" style="max-width: 300px; text-align: left; font-size: large; line-height: 1.6;">
         <p><strong>Anställnings-ID:</strong> {{ user.id }}</p>
         <p><strong>Användarnamn:</strong> {{ user.username }}</p>
         <p><strong>Namn:</strong> {{ user.name }}</p>
         <p><strong>E-post:</strong> {{ user.email }}</p>
         <p><strong>Telefon:</strong> {{ user.phone }}</p>
       </div>
-      <div class="buttons">
-        <button class="update_btn" @click="goToEditProfile">Redigera profil</button>
-        <button class="add_btn" @click="goToAddUser">Skapa ny användare</button>
-        <button class="logout_btn" @click="logout">Logga ut</button>
+      <div class="buttons is-flex is-flex-direction-column is-align-items-center mt-5" style="max-width: 300px; margin: auto;">
+        <button
+          class="button is-fullwidth mb-2"
+          style="background-color: #8B5E3C; color: #F9F5F0;"
+          @click="goToEditProfile"
+        >
+          Redigera profil
+        </button>
+        <button
+          class="button is-fullwidth mb-2"
+          style="background-color: #B87333; color: #3e3e3e;"
+          @click="goToAddUser"
+        >
+          Skapa ny användare
+        </button>
+        <button
+          class="button is-fullwidth"
+          style="background-color: #3e3e3e; color: #F9F5F0;"
+          @click="logout"
+        >
+          Logga ut
+        </button>
       </div>
-    </main>
-</template>  
+    </div>
+  </section>
+</template>
+
   
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-    img {
-        border-radius: 50%;
-        margin: 2em;
-        margin-bottom: 3em;
-        max-width: 400px;
-        width: 90%;
-    }
-    .profile-info {
-        max-width: 300px;
-        width: 90%;
-        margin: auto;
-        text-align: left;
-        font-size: large;
-        line-height: 1.6;
-        margin-top: 2em;
-    }
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        margin-top: 3em !important;
-        max-width: 300px;
-        width: 90%;
-        margin: auto;
-    }
-    button {
-        padding: 5px;
-        border: none;
-        border-radius: 5px;
-    }
-    .update_btn {
-        background-color: #8B5E3C;
-        color: #F9F5F0;
-    }
-    .update_btn:hover {
-        background-color: #714d31;
-    }
-    .add_btn {
-        background-color: #B87333;
-        color: #3e3e3e;
-    }
-    .add_btn:hover {
-        background-color: rgb(152, 95, 42);
-    }
-    .logout_btn {
-        background-color: #3e3e3e;
-        color: #F9F5F0;
-    }
-    .logout_btn:hover {
-        background-color: #222222;
-    }
-</style>
+<style scoped></style>

@@ -17,45 +17,41 @@
     };
 </script>
     
-    <template>
-      <form @submit.prevent="submitForm" class="form-container">
-        <div class="input-group">
-          <label>Namn:</label>
-          <input v-model="formData.name" placeholder="Namn" required />
-        </div>
-        <button type="submit">Lägg till kategori</button>
-      </form>
-    </template>
-   
+<template>
+  <form @submit.prevent="submitForm" class="boxless-form">
+    <div class="field">
+      <label class="label">Namn:</label>
+      <div class="control">
+        <input class="input" v-model="formData.name" placeholder="Namn" required />
+      </div>
+    </div>
+    <div class="field is-grouped is-grouped-centered">
+      <div class="control">
+        <button type="submit" class="button submit-btn">Lägg till kategori</button>
+      </div>
+    </div>
+  </form>
+</template>
+
 <style scoped>
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-        margin-top: 2em;
-    }
-    .input-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1.5em;
-    }
-    label {
-        margin-bottom: 0.5em;
-    }
-    input, textarea {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    button {
-        background-color: #B87333;
-        color: #3e3e3e;
-        border-radius: 5px;
-        border: none;
-        padding: 5px;
-        margin-bottom: 3em;
-    }
+  .boxless-form {
+    max-width: 400px;
+    width: 90%;
+    margin: 2em auto 3em auto;
+    text-align: left;
+  }
+  .input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .submit-btn {
+    background-color: #B87333;
+    color: #3e3e3e;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+  }
+  .submit-btn:hover {
+    background-color: rgb(152, 95, 42);
+  }
 </style>

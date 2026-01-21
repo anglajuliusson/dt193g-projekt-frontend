@@ -13,67 +13,60 @@
 </script>
 
 <template>
-    <header>
-        <div class="menu-and-button">
-            <nav id="main-nav">
-                <ul>
-                    <li><router-link to="/products">Produkter</router-link></li>
-                    <li><router-link to="/categories">Kategorier</router-link></li>
-                    <li><router-link to="/profile">Min profil</router-link></li>
-                </ul>
-            </nav>
-            <button @click="logout">Logga ut</button>
+  <nav class="navbar is-brown" role="navigation">
+    <div class="container is-fluid has-text-centered">
+      <div class="navbar-brand"></div>
+      <div class="navbar-menu is-active">
+        <div class="navbar-start is-centered">
+          <router-link class="navbar-item no-bg" to="/products">Produkter</router-link>
+          <router-link class="navbar-item no-bg" to="/categories">Kategorier</router-link>
+          <router-link class="navbar-item no-bg" to="/profile">Min profil</router-link>
         </div>
-    </header>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <button class="button logout-btn" @click="logout">Logga ut</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
-  
+
 <style scoped>
-  header {
-    width: 100%;
+  .navbar.is-brown {
     background-color: #8B5E3C;
     padding: 2em;
-    box-sizing: border-box;
   }
-  .menu-and-button {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem; /* mellan menyn och knappen */
-    justify-content: center; /* centrerar hela gruppen i headern */
+  .navbar-item.no-bg {
+    background-color: transparent !important;
+    color: #F9F5F0;
+    font-family: monospace;
     font-size: medium;
   }
-  #main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
-  }
-  #main-nav ul li a {
-    text-decoration: none;
-    color: #F9F5F0;
-  }
-  button {
-    padding: 0.5em 1em;
+  .logout-btn {
     background-color: #8B5E3C;
     color: #F9F5F0;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: medium;
     font-family: monospace;
+    font-size: medium;
+    padding: 0.5em 1em;
+    cursor: pointer;
+  }
+  .logout-btn:hover {
+    background-color: #714d31;
   }
   /* Desktop */
   @media (min-width: 768px) {
-  .menu-and-button {
-     justify-content: center; /* kan ändras till flex-start om du vill vänsterjustera */
-     gap: 1.5rem; /* mellan menyn och knappen */
-     font-size: large;
-  }
-  #main-nav ul {
-     gap: 3rem;
-  }
-  button {
-    font-size: large;
-  }
+    .navbar-item.no-bg {
+      font-size: large;
+    }
+    .logout-btn {
+      font-size: large;
+    }
+    .navbar-start.is-centered {
+      justify-content: center;
+      gap: 3rem;
+    }
   }
 </style>

@@ -32,16 +32,12 @@
 </script>    
     
 <template>
-    <main>
-        <h1>Lägg till ny användare</h1>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Lägg till ny användare</h1>
         <ProfileFrom @submit="handleSubmit" />
-    </main>
+      </div>
+    </section>
 </template>    
   
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-</style>
+<style scoped></style>
