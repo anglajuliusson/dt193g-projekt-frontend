@@ -55,20 +55,19 @@
 </script>
     
 <template>
-    <main>
-        <h1>Redigera profil</h1>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Redigera profil</h1>
+
+      <div>
         <ProfileForm 
-        v-if="profile && Object.keys(profile).length"
-        :profile="profile" 
-        @submit="handleSubmit" 
+          v-if="profile && Object.keys(profile).length"
+          :profile="profile" 
+          @submit="handleSubmit" 
         />
-    </main>
+      </div>
+    </div>
+  </section>
 </template>    
   
-<style scoped>
-    main {
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-</style>
+<style scoped></style>
