@@ -56,6 +56,9 @@
   .logout-btn:hover {
     background-color: #714d31;
   }
+  .navbar-menu {
+    background-color: #8B5E3C;
+  }
   /* Desktop */
   @media (min-width: 768px) {
     .navbar-item.no-bg {
